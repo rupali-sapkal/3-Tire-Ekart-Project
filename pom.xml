@@ -117,17 +117,8 @@
             <version>2.1.4</version>
         </dependency>
     </dependencies>
-   <server>
-      <id>maven-releases</id>
-      <username>admin</username>
-      <password>Admin@123456</password>
-    </server>
-
-       <server>
-      <id>maven-snapshots</id>
-      <username>admin</username>
-      <password>Admin@123456</password>
-    </server>
+ 
+         
     <build>
         <plugins>
             <plugin>
