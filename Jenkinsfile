@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('git checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/rupali-sapkal/3-Tire-Ekart-Project.git'
+                git branch: 'masin', url: 'https://github.com/rupali-sapkal/eks-cluster-deployment-master.git'
             }
         }
 
@@ -77,8 +77,8 @@ pipeline {
             steps{
                 script{
                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                   sh 'docker login -u youngminds73 -p ${dockerhubpwd}'}
-                   sh 'docker push youngminds73/ekart:latest'
+                   sh 'docker login -u amit24sapkal -p ${dockerhubpwd}'}
+                   sh 'docker push amit24sapkal/ekart:latest'
                 }
             }
         }
