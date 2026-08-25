@@ -156,19 +156,21 @@
 </plugin>
         </plugins>
     </build>
+<distributionManagement>
 
-         <distributionManagement>
     <repository>
-      <id>global-maven</id>
-      <name>global-maven</name>
-      <url>http://3.110.33.113:8081/repository/global-maven/</url>
+        <id>global-maven</id>
+        <name>maven-releases</name>
+        <url>http://3.110.33.113:8081/repository/maven-releases/</url>
     </repository>
+
     <snapshotRepository>
-      <id>maven-snapshots</id>
-      <name>maven-snapshots</name>
-      <url>http://3.110.33.113:8081/repository/maven-snapshots/</url>
+        <id>global-maven</id>
+        <name>maven-snapshots</name>
+        <url>http://3.110.33.113:8081/repository/maven-snapshots/</url>
     </snapshotRepository>
-</distributionManagement>
+
+</distributionManagement>>
 
 
 </project>
