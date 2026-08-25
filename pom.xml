@@ -117,7 +117,17 @@
             <version>2.1.4</version>
         </dependency>
     </dependencies>
+   <server>
+      <id>maven-releases</id>
+      <username>admin</username>
+      <password>Admin@123456</password>
+    </server>
 
+       <server>
+      <id>maven-snapshots</id>
+      <username>admin</username>
+      <password>Admin@123456</password>
+    </server>
     <build>
         <plugins>
             <plugin>
@@ -160,12 +170,12 @@
     <repository>
       <id>maven-releases</id>
       <name>maven-releases</name>
-      <url>http://52.66.190.73:8081/repository/maven-releases/</url>
+      <url>http://3.110.33.113:8081/repository/maven-releases/</url>
     </repository>
     <snapshotRepository>
       <id>maven-snapshots</id>
       <name>maven-snapshots</name>
-      <url>http://52.66.190.73:8081/repository/maven-snapshots/</url>
+      <url>http://3.110.33.113.73:8081/repository/maven-snapshots/</url>
     </snapshotRepository>
 </distributionManagement>
 
