@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('git checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/rupali-sapkal/ekart.git'
+                git branch: 'main', url: 'https://github.com/rupali-sapkal/3-Tire-Ekart-Project.git'
             }
         }
 
@@ -87,7 +87,7 @@ stage('Push image to Hub') {
         )]) {
             sh '''
                 echo "$DOCKERHUB_PWD" | docker login -u amit24sapkal --password-stdin
-                docker push amit24sapkal/3-Tire-Ekart-Project:latest
+                docker push amit24sapkal/ekart:latest
             '''
         }
     }
