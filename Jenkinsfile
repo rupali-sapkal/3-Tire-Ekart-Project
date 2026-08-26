@@ -63,11 +63,12 @@ pipeline {
                 }
             }
         }
+        
         stage('build and Tag docker image') {
-    steps {
+         steps {
         sh '''
             docker build --no-cache \
-            -t amit24sapkal/ekart:latest \
+            -t rupali1624/ekart:latest \
             -f docker/Dockerfile .
         '''
     }
@@ -81,16 +82,14 @@ stage('Push image to Hub') {
         )]) {
             sh '''
                 echo "$DOCKERHUB_PWD" | docker login \
-                    -u amit24sapkal \
+                    -u rupali1624 \
                     --password-stdin
 
-                docker push amit24sapkal/ekart:latest
+                docker push rupali1624/ekart:latest
             '''
         }
     }
 }
-
-        
 
 
         stage('EKS and Kubectl configuration'){
