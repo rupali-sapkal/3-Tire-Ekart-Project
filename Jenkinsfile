@@ -68,7 +68,7 @@ pipeline {
        steps {
         sh '''
             docker build --no-cache \
-            -t amit24sapkal/ekart:latest \
+            -t Rupali1624/ekart:latest \
             -f docker/Dockerfile .
         '''
     }
@@ -80,8 +80,8 @@ stage('Push image to Hub') {
             variable: 'DOCKERHUB_PWD'
         )]) {
             sh '''
-                echo "$DOCKERHUB_PWD" | docker login -u amit24sapkal --password-stdin
-                docker push amit24sapkal/ekart:latest
+                echo "$DOCKERHUB_PWD" | docker login -u Rupali1624 --password-stdin
+                docker push Rupali1624/ekart:latest
             '''
         }
     }
