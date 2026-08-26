@@ -64,21 +64,15 @@ pipeline {
             }
         }
         
-
-        stage('build and Tag docker image') {
-            steps {
-                script {
-                        sh "docker build -t amit24sapkal/ekart:latest -f docker/Dockerfile ."
-                    }
-            }
-        }
-
-        stage('Build Docker Image') {
-    steps {
-        sh 'docker build -t amit24sapkal/ekart:latest .'
+     stage('Build and Tag Docker Image') {
+       steps {
+        sh '''
+            docker build --no-cache \
+            -t amit24sapkal/ekart:latest \
+            -f docker/Dockerfile .
+        '''
     }
 }
-
 stage('Push image to Hub') {
     steps {
         withCredentials([string(
