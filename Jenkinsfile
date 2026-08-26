@@ -75,7 +75,7 @@ pipeline {
 
         stage('Build Docker Image') {
     steps {
-        sh 'docker build -t amit24sapkal/3-Tire-Ekart-Project:latest .'
+        sh 'docker build -t amit24sapkal/ekart:latest .'
     }
 }
 
