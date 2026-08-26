@@ -64,23 +64,33 @@ pipeline {
             }
         }
         stage('build and Tag docker image') {
-            steps {
-                script {
-                        sh "docker build -t Rupali1624/ekart:latest -f docker/Dockerfile ."
-                    }
-            }
-        }
+    steps {
+        sh '''
+            docker build --no-cache \
+            -t amit24sapkal/ekart:latest \
+            -f docker/Dockerfile .
+        '''
+    }
+}
 
-        stage('Push image to Hub'){
-            steps{
-                script{
-                   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                   sh 'docker login -u Rupali1624 -p ${dockerhubpwd}'}
-                   sh 'docker push Rupali1624/ekart:latest'
-                }
-            }
-        } 
-    
+stage('Push image to Hub') {
+    steps {
+        withCredentials([string(
+            credentialsId: 'dockerhub-pwd',
+            variable: 'DOCKERHUB_PWD'
+        )]) {
+            sh '''
+                echo "$DOCKERHUB_PWD" | docker login \
+                    -u amit24sapkal \
+                    --password-stdin
+
+                docker push amit24sapkal/ekart:latest
+            '''
+        }
+    }
+}
+
+        
 
 
         stage('EKS and Kubectl configuration'){
